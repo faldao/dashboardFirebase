@@ -1,6 +1,8 @@
 // dashboard/src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth, signInAnonymously } from "firebase/auth";
+import { getStorage } from "firebase/storage"; 
 
 const firebaseConfig = {
   apiKey: "AIzaSyDHkv77FfASpHnPh9MIBSmxRv-pHdu0mQQ",
@@ -14,3 +16,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+// Autenticación anónima
+const auth = getAuth(app);
+signInAnonymously(auth)
+  .then(() => {
+    console.log("🟢 Login anónimo exitoso");
+  })
+  .catch((error) => {
+    console.error("❌ Error en login anónimo:", error.code, error.message);
+  });

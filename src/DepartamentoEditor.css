@@ -1,0 +1,289 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Características */
+.caracteristicas-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.caracteristicas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.caracteristica-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.caracteristica-key {
+  background-color: #eee;
+  font-weight: bold;
+  flex: 0 0 150px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.caracteristica-item input:not(.caracteristica-key) {
+  flex: 1;
+}
+
+.caracteristicas-formulario {
+  display: flex;
+   gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.caracteristicas-formulario select {
+  width: 100%;
+  max-width: 250px;
+  flex-shrink: 1;
+}
+
+/* FAQs */
+.faqs-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.faqs-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faqs-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Galería */
+.galeria-lista {
+  display: flex;
+  flex-direction: column;
+width: 100%;
+  overflow-x: auto;
+  gap: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.galeria-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.galeria-item img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.galeria-item input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 300px;
+  flex-shrink: 1;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.delete-button:hover {
+  transform: scale(1.2);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ccc;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.galeria-formulario {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.boton-subir {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.boton-subir:hover {
+  background-color: #0056b3;
+}
+
+.explicacion {
+  color: #555;
+  background: #f7f7f7;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-left: 3px solid #007bff;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.parametro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fafcff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.parametro-nombre {
+  width: 30%;
+  min-width: 120px;
+  max-width: 260px;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.parametro-regla {
+  width: 100%;
+  min-height: 60px;
+  font-size: 15px;
+  resize: vertical;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.parametro-item .delete-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+}
+
+.prompt-field {
+  width: 30%;
+  min-width: 120px;
+  max-width: 280px;
+}
+
+.prompt-field label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+
