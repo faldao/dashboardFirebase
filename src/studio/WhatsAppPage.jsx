@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Icon from "./Icons";
 
-const webhook = "/api/whatsappWebhook";
 const callback = "https://viproomertest5.vercel.app/api/whatsappWebhook.mjs";
 
 export default function WhatsAppPage() {
@@ -15,7 +14,7 @@ export default function WhatsAppPage() {
     setChecking(true);
     setStatus("");
     try {
-      const response = await fetch(webhook, { signal: AbortSignal.timeout(8000) });
+      const response = await fetch(callback, { signal: AbortSignal.timeout(8000) });
       const { configured, promptConfigured } = await response.json();
       if (response.ok && configured === true) {
         setStatus(promptConfigured
