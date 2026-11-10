@@ -17,7 +17,7 @@ El proyecto de Vercel se llama `viproomer-ai-agent-studio` y conserva el dominio
 
 ## Prueba con tu WhatsApp personal
 
-ViproomerChatbotBackend recibe los mensajes de Meta, lee los prompts de Firestore y llama a OpenAI. El callback del backend es `https://viproomertest5.vercel.app/api/whatsappWebhook`. Los secretos se configuran en el proyecto de Vercel `viproomer-chatbot-backend`.
+ViproomerChatbotBackend recibe los mensajes de Meta, lee los prompts de Firestore y llama a OpenAI. El callback del backend es `https://viproomertest5.vercel.app/api/whatsappWebhook.mjs`. Los secretos se configuran en el proyecto de Vercel `viproomer-chatbot-backend`.
 
 La ruta `/api/whatsappWebhook` del panel reenvía las peticiones al backend. Permite consultar el estado desde el navegador y conserva la compatibilidad con el callback anterior.
 

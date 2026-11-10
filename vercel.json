@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "src": "/api/whatsappWebhook", "dest": "https://viproomertest5.vercel.app/api/whatsappWebhook" },
+    { "src": "/api/whatsappWebhook", "dest": "https://viproomertest5.vercel.app/api/whatsappWebhook.mjs" },
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
   ]

@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Icon from "./Icons";
 
 const webhook = "/api/whatsappWebhook";
-const callback = "https://viproomertest5.vercel.app/api/whatsappWebhook";
+const callback = "https://viproomertest5.vercel.app/api/whatsappWebhook.mjs";
 
 export default function WhatsAppPage() {
   const [params] = useSearchParams();
