@@ -1,7 +1,7 @@
 // src/DepartamentoEditor.jsx
 import { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, authReady } from "./firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 import { useSearchParams } from "react-router-dom";
@@ -27,6 +27,7 @@ export default function DepartamentoEditor() {
 
   useEffect(() => {
     async function fetchData() {
+      await authReady;
       const refDoc = doc(db, `propiedades/${propiedadId}/departamentos`, deptoId);
       const snap = await getDoc(refDoc);
       if (snap.exists()) {

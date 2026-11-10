@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, authReady } from "./firebase";
 import "./DepartamentoEditor.css";
 import { useSearchParams } from "react-router-dom";
 
@@ -62,6 +62,7 @@ function PromptIAForm({ docId }) {
 
   useEffect(() => {
     async function fetchConfig() {
+      await authReady;
       if (!docId) return;
       const refDoc = doc(db, "configuracion_prompts_IA", docId);
       const snap = await getDoc(refDoc);

@@ -1,0 +1,8 @@
+old/
+docs/
+test/
+tools/
+node_modules/
+.env
+.env.*
+!.env.example

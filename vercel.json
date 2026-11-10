@@ -1,5 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "routes": [
+    { "src": "/api/whatsappWebhook", "dest": "https://viproomertest5.vercel.app/api/whatsappWebhook" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }

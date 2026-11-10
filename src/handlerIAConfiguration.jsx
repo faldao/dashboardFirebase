@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, authReady } from "./firebase";
 import "./DepartamentoEditor.css";
 import { useSearchParams } from "react-router-dom";
 
@@ -53,6 +53,7 @@ function ConfiguracionHandlerForm({ handlerId }) {
   useEffect(() => {
     async function fetchConfig() {
       try {
+        await authReady;
         if (!handlerId) return;
         const refDoc = doc(db, "configuracion_handlers", handlerId);
         const snap = await getDoc(refDoc);

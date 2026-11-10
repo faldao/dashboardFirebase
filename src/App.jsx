@@ -1,7 +1,7 @@
 // dashboard/src/App.jsx
 import { useEffect, useState } from "react";
 import { collection, getDocs, updateDoc, doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, authReady } from "./firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 import './App.css';
@@ -21,6 +21,7 @@ export default function App() {
 
     useEffect(() => {
         async function fetchData() {
+            await authReady;
             const querySnapshot = await getDocs(collection(db, "propiedades"));
             const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
             setPropiedades(data.map((p) => ({
@@ -207,6 +208,7 @@ export default function App() {
     return (
         <div className="container">
             <h1>Dashboard de Propiedades</h1>
+            <p><a href="/flujo">Configurar el flujo de conversaciones →</a></p>
             {propiedades.map((p) => (
                 <div key={p.id} className="card">
                     <table style={{

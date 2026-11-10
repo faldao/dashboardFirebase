@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signInAnonymously } from "firebase/auth";
-import { getStorage } from "firebase/storage"; 
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDHkv77FfASpHnPh9MIBSmxRv-pHdu0mQQ",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "chatbot-viproomer.firebasestorage.app",
   messagingSenderId: "97297204714",
   appId: "1:97297204714:web:805379e7101b1a5bf41e93",
-  measurementId: "G-RB2P991267"
+  measurementId: "G-RB2P991267",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -19,11 +19,13 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 // Autenticación anónima
-const auth = getAuth(app);
-signInAnonymously(auth)
-  .then(() => {
+export const auth = getAuth(app);
+export const authReady = signInAnonymously(auth)
+  .then((credential) => {
     console.log("🟢 Login anónimo exitoso");
+    return credential.user;
   })
   .catch((error) => {
     console.error("❌ Error en login anónimo:", error.code, error.message);
+    throw error;
   });

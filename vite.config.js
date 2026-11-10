@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   root: '.',
-  base: './', // <- Esto asegura que los assets se carguen correctamente desde rutas relativas
+  base: '/',
   server: {
     port: 5173
   },

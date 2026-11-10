@@ -1,22 +1,22 @@
-// src/main.jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
-import DepartamentoEditor from './DepartamentoEditor';
-import HandlerIAConfiguration from './handlerIAConfiguration';
-import IAConfiguration from './IAConfiguration';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import StudioShell from "./studio/StudioShell";
+import PromptsPage from "./studio/PromptsPage";
+import WhatsAppPage from "./studio/WhatsAppPage";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/departamento" element={<DepartamentoEditor />} />
-        <Route path="/handlerIAConfiguration" element={<HandlerIAConfiguration />} />
-        <Route path="/IAConfiguration" element={<IAConfiguration />} />
-        </Routes>
+        <Route element={<StudioShell />}>
+          <Route path="/prompts" element={<PromptsPage />} />
+          <Route path="/prompts/:promptId" element={<PromptsPage />} />
+          <Route path="/IAConfiguration" element={<PromptsPage />} />
+          <Route path="/whatsapp" element={<WhatsAppPage />} />
+          <Route path="*" element={<Navigate to="/prompts" replace />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
-  </React.StrictMode>
-);  
+  </React.StrictMode>,
+);
